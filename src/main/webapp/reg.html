@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration form</title>
+  
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      animation: fadeIn 1s ease-in;
+      overflow: hidden;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15); 
+      padding: 30px 35px;
+      border-radius: 16px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+      width: 380px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.25); 
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    table {
+      width: 100%;
+      border: 0;
+    }
+
+    td {
+      padding: 8px;
+      font-size: 14px;
+      color: #e2e8f0;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.2);
+      color: #1e293b;
+      font-size: 14px;
+      transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
+      background: rgba(255, 255, 255, 0.35);
+      outline: none;
+    }
+
+    .helper {
+      font-size: 12px;
+      color: #d1d5db;
+      margin-top: 3px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      background-color: rgba(79, 70, 229, 0.85);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s;
+      backdrop-filter: blur(10px);
+    }
+
+    input[type="submit"]:hover {
+      background-color: rgba(67, 56, 202, 0.9);
+      transform: translateY(-2px);
+    }
+
+    input[type="reset"] {
+      background-color: rgba(100, 116, 139, 0.8);
+    }
+
+    input[type="reset"]:hover {
+      background-color: rgba(71, 85, 105, 0.9);
+      transform: translateY(-2px);
+    }
+
+    .actions {
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #f1f5f9;
+    }
+
+    .login-link a {
+      color: #a5b4fc;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .login-link a:hover {
+      color: #c7d2fe;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Welcome To The Site</h2>
+    <form method="post" action="Register">
+      <table>
+        <tr>
+          <td>Email ID</td>
+          <td><input type="email" name="email" placeholder="you@example.com" required></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input type="password" name="password" placeholder="Minimum 6 characters" minlength="6" required></td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td><input type="text" name="name" placeholder="Your full name" required></td>
+        </tr>
+        <tr>
+          <td>Security Question</td>
+          <td>
+            <select name="securitry_question" required>
+              <option value=""> choose a question </option>
+              <option value="pet">What was the name of your first pet?</option>
+              <option value="school">What is the name of your elementary school?</option>
+              <option value="city">In which city were you born?</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Answer</td>
+          <td><input type="text" name="answer" placeholder="Answer to security question" required></td>
+        </tr>
+        <tr>
+          <td>Contact No</td>
+          <td>
+            <input type="tel" name="contact" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+            <div class="helper">Enter 10 digits (numbers only)</div>
+          </td>
+        </tr>
+        <tr class="actions">
+          <td colspan="2" align="center">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <div class="login-link">
+      Already have an account? <a href="login.html">Login here</a>
+    </div>
+  </div>
+</body>
+</html>
